@@ -10,7 +10,7 @@ delta = 1; % amplitude of noise
 % coordinate axis
 t = linspace( 0, 1, n );
 
-% get disrete convolution operator (assignment 1)
+% define disrete convolution operator (assignment 1)
 K = % ADD YOUR COD HERE
 
 % compute condition number
