@@ -1,7 +1,7 @@
 clear, close all; clc;
 
-n     = 64; % grid size
-delta = 2;  % perturbation
+n     = 256; % grid size
+delta = 16;  % perturbation
 x_true = phantom( n );
 
 n = size( x_true );
@@ -13,7 +13,7 @@ K = getKernel2D( n );
 y = (K{2} * (K{1} * x_true)')';
 
 % perturb data / add noise
-y_delta = addNoise( y, delta );
+y_delta = % ADD YOUR CODE HERE
 
 % solve optimality system (K'*K + alpha*I) x_alpha = (K'*y_delta)
 % we use an iterative solver based on PCG, since the kernel matrix
