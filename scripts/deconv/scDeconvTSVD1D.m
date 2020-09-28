@@ -5,7 +5,7 @@ clear, close all; clc;
 
 % number of grid points
 n = 256;
-delta = 0.5; % amplitude of noise
+delta = 1; % amplitude of noise
 
 % coordinates
 t = linspace( 0, 1, n );
@@ -18,7 +18,7 @@ c = cond( K );
 fprintf('condition number of K: %e\n', c );
 
 % compute source (assignment 1)
-x_true = getDeconvSource1D( n, 3 );
+x_true = % ADD YOUR CODE HERE
 
 % compute right hand side
 y = K*x_true;
