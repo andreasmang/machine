@@ -6,6 +6,7 @@ x_true = phantom( n );
 
 n = size( x_true );
 
+% get discrete smoothing kernel
 K = getKernel2D( n );
 
 % blur source: first, K{1} is applied to each column of x,
