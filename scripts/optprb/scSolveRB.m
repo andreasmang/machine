@@ -9,8 +9,9 @@ objfun = @(x) objFunRB( x );
 % initial guess
 x0 = [ 2; 2 ];
 
-method = 'gd';
-%method = 'newton';
+method = 'gdsc';
+% method = 'newton';
+% method = 'bfgs';
 
 % execute iterative solver
 xisol = runOptimizer( objfun, x0, method );
