@@ -52,8 +52,9 @@ end % end function
 
 
 
-%######################################################
+%#######################################################
 % This code is part of the Matlab-based toolbox
-% OPTIK --- Optimization Toolkit
-% For details see https://github.com/andreasmang/optik
-%######################################################
+% MACHINE --- MAthematical and Computational metHods
+% for INverse problEms
+% For details see https://github.com/andreasmang/machine
+%#######################################################
