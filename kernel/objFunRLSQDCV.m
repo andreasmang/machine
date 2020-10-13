@@ -1,12 +1,11 @@
-function [f,df,d2f] = objFunRLSQ( x, K, y, L, alpha )
-%OBJFUNRLSQ implementation of objective function for
+function [f,df,d2f] = objFunRLSQDCV( x, K, y, alpha )
+%OBJFUNRLSQDCV implementation of objective function for
 %regularized least squares problem
 %
 % inputs:
-%   K          n x m matrix
+%   K          structure with operators along x1 and x2 directions
 %   y          right hand side (vector)
 %   x          current iterate
-%   L          regularization operator (n x n matrix)
 %   alpha      regularization parameter
 %
 % outputs:
@@ -17,7 +16,7 @@ function [f,df,d2f] = objFunRLSQ( x, K, y, L, alpha )
 if nargin < 1, runSelfTest(); return; end
 
 % evaluate objective functional
-f  = % ADD YOUR CODE HERE
+f = % ADD YOUR CODE HERE
 
 % evaluate gradient of f(x)
 if nargout > 1
@@ -41,22 +40,13 @@ function runSelfTest()
 n = 100;
 
 % construct solution
-x0 = rand( n, 1 );
+K = getKernel2D( [n,n] );
 
-% create SPD matrix
-d = logspace( 0, -6, n );
-K = sprandsym( n, 1, d );
-
-% construct right hand side (we add small perturbation
-% so that b is not (likely) in col(K))
-eta = 1e-3;
-y = K*x0 + eta*rand(n,1);
-
-% construct regulariation operator
-L = eye( n );
+b  = rand( [ n, n] );
+x0 = rand( [ n*n, 1] );
 
 % define function handle for objective function
-objfun = @(x) objFunRLSQ( x, K, y, L, 0.1 );
+objfun = @(x) objFunRLSQDCV( x, K, b, 0.1 );
 
 % perform derivative check
 checkDerivative( objfun, x0 );
