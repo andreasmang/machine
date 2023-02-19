@@ -9,12 +9,14 @@ function [ydelta, noise] = addNoise( y, delta )
 %   ydelta   perturbed data
 %   noise    perturbation/noise added to data (delta*eta)
 
+% default value for noise level
+if nargin < 2, delta = 1.0; end
+
 % get size of data
 n = size( y );
 
 % compute and normalize noise
 eta = randn( n );
-eta = eta ./ norm( eta(:) );
 noise = delta.*eta;
 
 % perturb data by noise
