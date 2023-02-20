@@ -46,11 +46,6 @@ xlabel( '$\alpha$', 'FontSize', 19, 'interpreter', 'latex' );
 title( 'discrepancy principle', 'FontSize', 19 );
 hold off;
 
-% store data
-writeVec2tikz( alphalist, res, 'deconv1d-disprinc-res.dat' );
-writeVec2tikz( alphalist, delta*ones(m,1), 'deconv1d-disprinc-delta.dat' );
-
-
 end % end of function
 
 

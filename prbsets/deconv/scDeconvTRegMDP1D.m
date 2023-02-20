@@ -10,10 +10,10 @@ tau = 0.005; % parameterization of kernel
 s = linspace( 0, 1, n );
 
 % get disrete convolution operator
-K = getKernel1D( n, 1, tau );
+K = getKernel1D( n, tau );
 
 % get true data
-x_true = getDeconvSource1D( n, 3 );
+x_true = getDeconvSource1D( n );
 
 % compute right hand side
 y = K*x_true;
