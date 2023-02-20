@@ -48,9 +48,9 @@ subplot(1,3,3), imagesc(R3), colorbar(), axis square, title('rank=50');
 
 % compute relative error between low rank approximations
 % and display error to user
-err1 = norm( K1 - K ) / norm( K );
-err2 = norm( K2 - K ) / norm( K );
-err3 = norm( K3 - K ) / norm( K );
+err1 = % ADD YOUR CODE HERE
+err2 = % ADD YOUR CODE HERE
+err3 = % ADD YOUR CODE HERE
 fprintf(' error (rank  5) = %e\n', err1 );
 fprintf(' error (rank 10) = %e\n', err2 );
 fprintf(' error (rank 50) = %e\n', err3 );
