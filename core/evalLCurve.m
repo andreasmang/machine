@@ -36,8 +36,8 @@ end
 figure();
 loglog( res, reg, 'kx', 'MarkerSize', 10, 'Linewidth', 2 ); hold on;
 loglog( res, reg, 'k-', 'Linewidth', 1 ); grid on;
-xlabel( '||K*x_{\alpha} - y^{\delta}||_2', 'FontSize', 14, 'Interpreter','tex' );
-ylabel( '||x_{\alpha}||', 'FontSize', 14 );
+xlabel( '$||Kx_{\alpha} - y^{\delta}||_2$', 'FontSize', 14, 'interpreter', 'latex' );
+ylabel( '$||x_{\alpha}||$', 'FontSize', 14, 'interpreter', 'latex' );
 title( 'L-curve', 'FontSize', 14 );
 hold off;
 
