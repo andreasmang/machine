@@ -15,7 +15,7 @@ xtrue = rand(n,1);
 y = K*xtrue;
 
 % solve linear system Kx = y
-xsol1 = pcg(K, y, 1e-6);
+xsol1 = pcg(K,y,1e-6);
 xsol2 = runCG(K,y,1e-6);
 
 % compute relative error between true solution and numerical solution

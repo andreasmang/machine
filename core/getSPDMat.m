@@ -3,11 +3,17 @@ function [A] = getSPDMat( n, s )
 %
 % input
 %   n       size of n x n matrix
-%   s       smallest eigenvalue
+%   s       order of smallest eigenvalue, i.e., lmin = 10^s
+
+if s >= 0
+    warning('s should be in (-infty,0)')
+    s = -6;
+end
 
 % construct SPD matrix
 U = orth( rand( n, n ) );
 d = logspace( 0, s, n );
+
 A = U*diag(d)*U';
 
 end % end of function

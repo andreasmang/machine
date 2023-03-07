@@ -57,7 +57,8 @@ for i = 1 : maxiter
     r = % ADD YOUR CODE HERE
     rsnew = r'*r;
 
-    fprintf(' PCG residual %e\n', rsnew);
+    % uncomment to debug
+%    fprintf(' i = %4d: PCG residual %e\n', i, rsnew);
 
     if sqrt(rsnew) < tol, break; end
 
@@ -65,6 +66,8 @@ for i = 1 : maxiter
     d = % ADD YOUR CODE HERE
     rsold = rsnew;
 end
+
+fprintf('CG residual %e at iteration %d of %d\n', sqrt(rsnew), i, maxiter );
 
 end % end of function
 
