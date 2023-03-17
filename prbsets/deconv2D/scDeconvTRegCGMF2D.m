@@ -6,27 +6,27 @@ clear, close all; clc;
 
 gamma = 50;  % perturbation
 data = load('satellite-256x256.mat');
-x_true = data.x_true;
+X_true = data.x_true;
 
 tol = 1e-3; % tolerance for PCG
 maxit = 1000; % number of max iterations for PCG
 
 % get problem dimensions
-n = size( x_true, 1 );
-assert(n==size(x_true, 2));
+n = size( X_true, 1 );
+assert(n==size(X_true, 2));
 
 % get 2D kernel matrix
 K = getKernel2D( n );
 
 % blur source: first, K{1} is applied to each column of x,
 % then K{2} is applied to each row of x
-y = % ADD YOUR CODE HERE
+Y = % ADD YOUR CODE HERE
 
 % compute noise level as a function of snr
-delta = norm(y(:)) / (gamma*sqrt(n*n));
+delta = norm(Y(:)) / (gamma*sqrt(n*n));
 
 % perturb data / add noise
-y_delta = addNoise( y, delta );
+Y_delta = addNoise( Y, delta );
 
 % solve optimality system (K'*K + alpha*I) x_alpha = (K'*y_delta)
 % we use an iterative solver based on PCG, since the kernel matrix
@@ -36,7 +36,7 @@ y_delta = addNoise( y, delta );
 % a.k.a, the "matvec)
 
 % compute right hand side K'y (note: K is a summetrix matrix)
-kty = % ADD YOUR CODE HERE
+rhs = % ADD YOUR CODE HERE
 
 % function handle for matrix vector product (function implemented below)
 matvec = @(x, alpha) evalMatVec( x, K, alpha );
@@ -48,7 +48,7 @@ alpha = 1e-3;
 x_alpha = % ADD YOUR CODE HERE
 
 % map solution back to matrix shape (for visualization)
-x_alpha = reshape( x_alpha, [n,n] );
+X_alpha = reshape( x_alpha, [n,n] );
 
 
 % visualize the results
@@ -58,11 +58,11 @@ t2 = linspace( 0, 1, n );
 
 
 figure();
-subplot(1,5,1), imagesc( x_true ); colormap gray;
-subplot(1,5,2), imagesc( y ); colormap gray;
-subplot(1,5,3), imagesc( y_delta ); colormap gray
-subplot(1,5,4), imagesc( x_alpha ); colormap gray
-subplot(1,5,5), imagesc( abs(x_alpha - x_true) ); colormap gray;
+subplot(1,5,1), imagesc( X_true ); colormap gray;
+subplot(1,5,2), imagesc( Y ); colormap gray;
+subplot(1,5,3), imagesc( Y_delta ); colormap gray
+subplot(1,5,4), imagesc( X_alpha ); colormap gray
+subplot(1,5,5), imagesc( abs(X_alpha - X_true) ); colormap gray;
 
 
 
@@ -73,7 +73,7 @@ function y = evalMatVec( x, K, alpha )
 n = [ size(K{1},1), size(K{2},1) ];
 
 % map vector (lexicographical ordering) back to matrix
-x = reshape( x, n );
+X = reshape( x, n );
 
 % ADD YOUR CODE HERE
 
