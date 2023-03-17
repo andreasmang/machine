@@ -21,7 +21,7 @@ figure()
 subplot(1,2,1), imagesc(log(SST)); colorbar()
 subplot(1,2,2), surf(log(SST)); shading interp;
 
-% plot right singular vectors of K2 \otimes K1 v1i v2j^T for
+% plot right singular vectors of K2 \otimes K1 based on v1i v2j^T for
 % i,j = 1,4,16
 id = {1,4,16};
 m = numel(id);

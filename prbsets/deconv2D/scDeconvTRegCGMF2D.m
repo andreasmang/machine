@@ -58,14 +58,6 @@ t2 = linspace( 0, 1, n );
 
 
 figure();
-subplot(1,5,1), surf( t1, t2, x_true ); shading interp;
-subplot(1,5,2), surf( t1, t2, y ); shading interp;
-subplot(1,5,3), surf( t1, t2, y_delta ); shading interp;
-subplot(1,5,4), surf( t1, t2, x_alpha ); shading interp;
-subplot(1,5,5), surf( t1, t2, abs(x_alpha - x_true) ); shading interp;
-
-
-figure();
 subplot(1,5,1), imagesc( x_true ); colormap gray;
 subplot(1,5,2), imagesc( y ); colormap gray;
 subplot(1,5,3), imagesc( y_delta ); colormap gray
