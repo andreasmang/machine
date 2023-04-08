@@ -38,7 +38,7 @@ end % end of function
 function dxx = getLapOp1D(n,h)
 % construct 1D laplacian operator
 
-dxx = spdiags(ones(n,1)*[-1, 2, -1],-1:1,n,n)/(h*h);
+dxx = % ADD YOUR CODE HERE
 
 % zero dirichlet boundary conditions
 dxx(  1,  1) = 2/(h*h);
