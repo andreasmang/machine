@@ -13,7 +13,7 @@ L = getLapMat([n,1],1);
 fprintf('size of laplacian operator: %d x 1\n', size(L,1));
 
 % compute cholesky decomposition
-R = % ADD YOUR CODE
+C = % ADD YOUR CODE
 
 % number of draws
 ndraws = 6;
@@ -41,7 +41,7 @@ L = getLapMat([n,n],2);
 fprintf('size of laplacian operator: %d x %d\n', size(L,1), size(L,2));
 
 % compute cholesky decomposition
-R = % ADD YOUR CODE HERE
+C = % ADD YOUR CODE HERE
 
 % number of draws
 ndraws = 6;
