@@ -1,6 +1,6 @@
 function alpha = evalGCV(K, L, y_obs)
-% implementation of generalized cross validation for tikhonov regularized
-% linear inverse problem K*x = y
+% implementation of generalized cross validation (GCV) for tikhonov
+% regularized linear inverse problem K*x = y
 %
 % input:
 %   K        forward operator
