@@ -11,7 +11,6 @@ clc;
 ns = 1000; % number of samples to be drawn
 n = 80; % number of points
 delta = 2; % error level is 2%
-alpha = 1e-1; % regularization parameter
 
 % get source for deconvolution problem
 [x_true,s] = getDeconvSource1D( n );
@@ -28,6 +27,11 @@ y_obs = K*x_true + eta;
 
 % compute precision matrix of prior distribution
 L = getLapMat(n, 1);
+
+% use generalized cross validation to compute optimal regularization
+% parameter linear invere problem
+alpha = evalGCV(K, L, y_obs);
+fprintf('optimal regularization parameter alpha = %e\n', alpha);
 
 % compute solution for "optimal" regularization parameter (parameter can
 % be found using various criteria; here we simply used trial and error)
