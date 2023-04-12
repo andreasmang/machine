@@ -4,41 +4,12 @@ clear, close all; clc;
 % precision matrix (finite difference approximation of the laplacian
 % operator; the implementation is in one and two dimensions
 
-% problem dimension (256 x 1)
-n = 256;
-
-% get finite difference approximation of laplacian operator (i.e.,
-% precision matrix L)
-L = getLapMat([n,1],1);
-fprintf('size of laplacian operator: %d x 1\n', size(L,1));
-
-% compute cholesky decomposition
-C = % ADD YOUR CODE
-
-% number of draws
-ndraws = 6;
-figure()
-s = linspace(0,1,n);
-hold on;
-for i = 1 : ndraws
-
-    % draw x from normal distribution
-    w = % ADD YOUR CODE
-    x = % ADD YOUR CODE
-
-    % plot drawn x
-    plot(s,x);
-end
-hold off;
-
-
 % problem dimension (256 x 256)
 n = 256;
 
 % get finite difference approximation of laplacian operator (i.e.,
 % precision matrix L)
 L = getLapMat([n,n],2);
-fprintf('size of laplacian operator: %d x %d\n', size(L,1), size(L,2));
 
 % compute cholesky decomposition
 C = % ADD YOUR CODE HERE

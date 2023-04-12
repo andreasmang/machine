@@ -18,6 +18,25 @@ subplot(1,5,4), plot(t,U(:,250)); title('singular vector 250');
 subplot(1,5,5), plot(t,U(:,256)); title('singular vector 256');
 
 
+% check orthogonality
+ntrials = 10;
+k = randi([1 n], ntrials, 1);
+j = randi([1 n], 1, 1);
+uj = U(:,j);
+
+for i = 1 : ntrials
+    uk = U(:,k(i));
+    fprintf('inner product %3d %3d: % .6e\n', j, k(i), uk'*uj);
+    fprintf('inner product %3d %3d: % .6e\n', k(i), k(i), uk'*uk);
+end
+
+
+% symmetry error: <L*x, L*x> - <L*L*x,x>
+x = rand([n,1]);
+err = ((L*L*x)'*x - (L*x)'*(L*x)) / norm(L*x);
+fprintf('error in symmetry: %e\n', err);
+
+
 
 
 %#######################################################
