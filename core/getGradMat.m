@@ -1,4 +1,4 @@
-function D = getGradMat(n, dim, h)
+function [D,D1,D2] = getGradMat(n, dim, h)
 % GETGRADMAT get gradient matrix
 %
 % input:
@@ -9,7 +9,6 @@ function D = getGradMat(n, dim, h)
 % output:
 %   D     gradient operator
 
-if nargin < 2, rescale = true; end
 if ~exist('h','var'), h = ones([dim,1]); end
 
 % identity matrix
@@ -20,8 +19,12 @@ grd = @(j) getGradOp1D( n(j), h(j) );
 
 % implementations for one and two-dimensional ambient space
 switch dim
-    case 1, D = grd(1);
-    case 2, D = [kron(id(2),grd(1)); kron(grd(2),id(1))];
+    case 1
+        D = grd(1);
+    case 2
+        D1 = kron(id(2),grd(1));
+        D2 = kron(grd(2),id(1));
+        D = [D1; D2];
 end
 
 end % end of function

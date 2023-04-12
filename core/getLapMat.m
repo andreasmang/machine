@@ -12,11 +12,7 @@ function L = getLapMat(n, dim, h)
 % output:
 %   L     laplacian operator
 
-if nargin < 3, rescale = true; end
-
-if ~exist('h','var')
-    h = ones([dim,1]);
-end
+if ~exist('h','var'), h = ones([dim,1]); end
 
 
 % identity matrix
