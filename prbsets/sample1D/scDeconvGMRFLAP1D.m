@@ -40,8 +40,8 @@ x_alpha = ((K'*K) + alpha*L) \ K'*y_obs;
 
 % estimate lambda and delta given solution of inverse problem
 r = y_obs - K*x_alpha;
-lambda = 1 / var(r);
-delta = alpha*lambda;
+tau = 1 / var(r);
+beta = alpha*tau;
 
 % compute cholesky decomposition
 C = % ADD YOUR CODE HERE
